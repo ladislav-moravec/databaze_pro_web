@@ -49,4 +49,14 @@ VALUES
 DELETE FROM `uzivatele`;
 DELETE FROM SQLITE_SEQUENCE WHERE name = "uzivatele";
 
-/Users/ladislav/Documents/databaze_pro_web.sql
+SELECT * FROM "uzivatele" WHERE "datum_narozeni" >= '1960-1-1' AND "pocet_clanku" > 5;
+SELECT "prijmeni" FROM "uzivatele" WHERE "prijmeni" LIKE 's%';
+SELECT "prijmeni" FROM "uzivatele" WHERE "prijmeni" LIKE '_o___';
+SELECT "jmeno", "prijmeni" FROM "uzivatele" WHERE "jmeno" IN ('Petr', 'Jan', 'Kateřina');
+SELECT "jmeno", "prijmeni", "datum_narozeni" FROM "uzivatele" WHERE "datum_narozeni" BETWEEN '1980-1-1' AND '1990-1-1';
+
+
+
+
+
+
