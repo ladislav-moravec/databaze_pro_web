@@ -1,3 +1,12 @@
+CREATE TABLE "uzivatele" (
+	"uzivatele_id"	INTEGER,
+	"jmeno"	TEXT,
+	"prijmeni"	TEXT,
+	"datum_narozeni"	TEXT,
+	"pocet_clanku"	INTEGER,
+	PRIMARY KEY("uzivatele_id" AUTOINCREMENT)
+)
+
 INSERT INTO "uzivatele" (
         "jmeno",
         "prijmeni",
