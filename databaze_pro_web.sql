@@ -56,7 +56,34 @@ SELECT "jmeno", "prijmeni" FROM "uzivatele" WHERE "jmeno" IN ('Petr', 'Jan', 'Ka
 SELECT "jmeno", "prijmeni", "datum_narozeni" FROM "uzivatele" WHERE "datum_narozeni" BETWEEN '1980-1-1' AND '1990-1-1';
 
 
+-- databaze__pro_web 4.1
+INSERT INTO `uzivatele` VALUES(5, "Mára", "marek.zahradnik@centrum.cz", "&'dhfiggg!/#@");
+
+SELECT heslo FROM uzivatele WHERE uzivatele_id = 5;
+
+SELECT * FROM komentare WHERE obsah LIKE "%!" AND datum BETWEEN "2012-01-01" AND "2012-12-31";
 
 
+-- insane_racing 4.2
+UPDATE uzivatele SET prezdivka = "Muscles&Money99" WHERE prezdivka = "UsedArm67";
 
+PRAGMA foreign_keys = 0;
+DELETE FROM meny WHERE zkratka != "USD";
+INSERT INTO meny VALUES(null, "Souhrnná koruna", "SOK", 0.987654321);
 
+UPDATE vyhry SET penize = penize * 0.9 WHERE penize > 500000;
+
+-- simple money
+UPDATE address 
+	SET street = "Na vyhlídce", house_number = 1, city = "Kocourkov", zip = 99999 
+	WHERE street = "Jilmová" 
+	AND house_number = 25 
+	AND city = "Čáslav" 
+	AND zip = 28601;
+	
+SELECT * FROM item WHERE title LIKE "%Lednička%" AND price < 8000;
+
+UPDATE item SET price = price * 1.2 WHERE price < 1000;
+/* nebo  UPDATE item SET price = price * 1.1 WHERE price >= 1000 AND price <= 8000; */
+UPDATE item SET price = price * 1.1 WHERE price BETWEEN 1000 AND 8000; 
+UPDATE item SET price = price * 1.05 WHERE price > 8000;
