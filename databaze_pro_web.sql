@@ -87,3 +87,39 @@ UPDATE item SET price = price * 1.2 WHERE price < 1000;
 /* nebo  UPDATE item SET price = price * 1.1 WHERE price >= 1000 AND price <= 8000; */
 UPDATE item SET price = price * 1.1 WHERE price BETWEEN 1000 AND 8000; 
 UPDATE item SET price = price * 1.05 WHERE price > 8000;
+
+
+-- ASC, DESC
+-- LIMIT
+SELECT "jmeno", "prijmeni", "pocet_clanku" 
+FROM "uzivatele" 
+ORDER BY "pocet_clanku" DESC, "prijmeni" 
+LIMIT 10;
+
+-- AVG, SUM, MIN, MAX
+SELECT AVG("pocet_clanku") FROM "uzivatele";
+
+SELECT "jmeno", COUNT(*) FROM "uzivatele" GROUP BY "jmeno";
+
+INSERT INTO "uzivatele" ("pocet_clanku") VALUES ('Mnoho');
+
+
+-- sql 
+CREATE TABLE `uzivatele` (
+  `uzivatele_id` int AUTO_INCREMENT,
+  `jmeno` varchar(60),
+  `prijmeni` varchar(60),
+  `datum_narozeni` date,
+  `pocet_clanku` int,
+  PRIMARY KEY (`uzivatele_id`)
+);
+
+-- vs sqlite 
+CREATE TABLE "uzivatele" (
+        "uzivatele_id" INTEGER PRIMARY KEY AUTOINCREMENT,
+        "jmeno" TEXT,
+        "prijmeni" TEXT,
+        "datum_narozeni" TEXT,
+        "pocet_clanku" INTEGER
+);
+
