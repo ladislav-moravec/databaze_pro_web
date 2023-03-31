@@ -123,3 +123,100 @@ UPDATE pobocky SET pocet_pracovniku = 200 WHERE id_pobocky = 1;
 UPDATE pobocky SET pocet_pracovniku = 50 WHERE id_pobocky = 2;
 
 
+
+
+
+
+
+
+----- fulltext
+
+CREATE TABLE prispevky(
+    prispevek_id INTEGER NOT NULL,
+    nazev TEXT NOT NULL,
+    obsah TEXT NOT NULL,
+    PRIMARY KEY(prispevek_id AUTOINCREMENT)
+);
+
+
+
+INSERT INTO prispevky(nazev, obsah) VALUES("Java", "Java je objektově orientovaný jazyk."),
+                                          ("PHP", "PHP je serverový jazyk."),
+                                          ("C++", "C++ se často používá pro vývoj AAA herních titulů."),
+                                          ("Python", "Python je díky jednoduché syntaxi dobrý pro testování nových algoritmů."),
+                                          ("Maďarština", "Maďarština je jazyk, kterým se mluví v Maďarsku.");
+
+
+
+
+CREATE VIRTUAL TABLE nazev_tabulky USING FTS5(sloupec1, sloupec2);
+
+
+
+
+
+CREATE VIRTUAL TABLE prispevky_virtual USING FTS5(nazev, obsah);
+
+
+
+
+
+CREATE VIRTUAL TABLE IF NOT EXISTS nazev_virtualni_tabulky USING FTS5(sloupec1, sloupec2);
+
+
+Zdroj: https://www.itnetwork.cz/sqlite/sqlite-fulltextove-vyhledavani
+
+
+
+
+CREATE VIRTUAL TABLE IF NOT EXISTS prispevky_virtual USING FTS5(nazev, obsah);
+INSERT INTO prispevky_virtual SELECT nazev, obsah FROM prispevky;
+Zdroj: https://www.itnetwork.cz/sqlite/sqlite-fulltextove-vyhledavani
+
+
+---- odebrání fulltextu
+
+CREATE TABLE nazev_tabulky(
+    id INTEGER NOT NULL,
+    nazev TEXT NOT NULL,
+    obsah TEXT NOT NULL,
+    PRIMARY KEY(id AUTOINCREMENT)
+);
+Zdroj: https://www.itnetwork.cz/sqlite/sqlite-fulltextove-vyhledavani
+
+
+
+
+INSERT INTO nazev_tabulky(nazev, obsah) SELECT * FROM nazev_virtualni_tabulky;
+
+
+Zdroj: https://www.itnetwork.cz/sqlite/sqlite-fulltextove-vyhledavani
+
+
+
+------- vyhledávání fulltext
+
+
+
+
+SELECT sloupce FROM nazev_tabulky
+WHERE
+   sloupec_hledani
+   MATCH('hledany_vyraz')
+   ORDER BY rank;
+Zdroj: https://www.itnetwork.cz/sqlite/sqlite-fulltextove-vyhledavani
+
+
+
+
+SELECT nazev,obsah FROM prispevky_virtual
+WHERE
+   obsah
+   MATCH('jazyk')
+   ORDER BY rank;
+Zdroj: https://www.itnetwork.cz/sqlite/sqlite-fulltextove-vyhledavani
+
+
+
+
+----- praktický příklad vyhledávání 
