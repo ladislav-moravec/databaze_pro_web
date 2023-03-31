@@ -1,3 +1,14 @@
+----------------- def
+CREATE TRIGGER nazev_triggeru {BEFORE,AFTER} {UPDATE,INSERT,DELETE}
+ON nazev_pridruzene_tabulky FOR EACH ROW
+BEGIN
+    telo_triggeru;
+END $
+---------------
+--------------
+
+
+
 CREATE TABLE IF NOT EXISTS pobocky(
     id_pobocky INTEGER NOT NULL,
     mesto TEXT NOT NULL,
@@ -10,6 +21,7 @@ CREATE TABLE IF NOT EXISTS pobocky(
 CREATE TABLE IF NOT EXISTS statistika_pobocek(
     pocet_pracovniku_celkem INTEGER NOT NULL
 );
+
 INSERT INTO statistika_pobocek VALUES(0);
 
 CREATE TRIGGER before_insert_pobocky BEFORE INSERT
@@ -63,6 +75,7 @@ SELECT * FROM historie_pobocek;
 
 SELECT * FROM statistika_pobocek;
 
+-- 
 
 CREATE TRIGGER after_delete_pobocky AFTER DELETE
 ON pobocky FOR EACH ROW
