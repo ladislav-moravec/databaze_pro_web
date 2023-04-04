@@ -164,14 +164,12 @@ CREATE VIRTUAL TABLE prispevky_virtual USING FTS5(nazev, obsah);
 CREATE VIRTUAL TABLE IF NOT EXISTS nazev_virtualni_tabulky USING FTS5(sloupec1, sloupec2);
 
 
-Zdroj: https://www.itnetwork.cz/sqlite/sqlite-fulltextove-vyhledavani
 
 
 
 
 CREATE VIRTUAL TABLE IF NOT EXISTS prispevky_virtual USING FTS5(nazev, obsah);
 INSERT INTO prispevky_virtual SELECT nazev, obsah FROM prispevky;
-Zdroj: https://www.itnetwork.cz/sqlite/sqlite-fulltextove-vyhledavani
 
 
 ---- odebrání fulltextu
@@ -182,7 +180,6 @@ CREATE TABLE nazev_tabulky(
     obsah TEXT NOT NULL,
     PRIMARY KEY(id AUTOINCREMENT)
 );
-Zdroj: https://www.itnetwork.cz/sqlite/sqlite-fulltextove-vyhledavani
 
 
 
@@ -190,7 +187,6 @@ Zdroj: https://www.itnetwork.cz/sqlite/sqlite-fulltextove-vyhledavani
 INSERT INTO nazev_tabulky(nazev, obsah) SELECT * FROM nazev_virtualni_tabulky;
 
 
-Zdroj: https://www.itnetwork.cz/sqlite/sqlite-fulltextove-vyhledavani
 
 
 
@@ -204,7 +200,6 @@ WHERE
    sloupec_hledani
    MATCH('hledany_vyraz')
    ORDER BY rank;
-Zdroj: https://www.itnetwork.cz/sqlite/sqlite-fulltextove-vyhledavani
 
 
 
@@ -214,9 +209,50 @@ WHERE
    obsah
    MATCH('jazyk')
    ORDER BY rank;
-Zdroj: https://www.itnetwork.cz/sqlite/sqlite-fulltextove-vyhledavani
 
 
 
 
 ----- praktický příklad vyhledávání 
+
+---- like 
+
+
+SELECT nazev FROM prispevky_virtual
+WHERE
+   obsah
+   LIKE "%objektově orientovaný%";
+
+SELECT nazev FROM prispevky_virtual
+WHERE
+   obsah
+   LIKE "%orientovaný objektově%";
+
+---- fulltext
+
+
+SELECT nazev FROM prispevky_virtual
+WHERE
+   obsah
+   MATCH("objektově orientovaný")
+   ORDER BY rank;
+
+
+SELECT nazev FROM prispevky_virtual
+WHERE
+   obsah
+   MATCH("AAA titulů")
+   ORDER BY rank;
+
+
+
+SELECT nazev,obsah FROM prispevky_virtual
+WHERE
+   obsah
+   MATCH('jazyk NOT java')
+   ORDER BY rank;
+
+
+
+
+

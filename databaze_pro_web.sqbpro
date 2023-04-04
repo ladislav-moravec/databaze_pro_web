@@ -1,41 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/ladislav/databaze_pro_web.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1268"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,9:mainuzivatele"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="sqlite_sequence" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="63"/><column index="2" value="49"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="uzivatele" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="108"/><column index="2" value="163"/><column index="3" value="141"/><column index="4" value="241"/><column index="5" value="363"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">INSERT INTO &quot;uzivatele&quot; (
-        &quot;jmeno&quot;,
-        &quot;prijmeni&quot;,
-        &quot;datum_narozeni&quot;,
-        &quot;pocet_clanku&quot;
-)
-VALUES
-('Jan',  'Novák',  '1984-11-03', 17),
-('Tomáš', 'Marný', '1942-10-17', 12),
-('Josef', 'Nový', '1958-7-10', 5),
-('Alfons', 'Svoboda', '1935-5-15', 6),
-('Ludmila', 'Dvořáková', '1967-4-17', 2),
-('Petr', 'Černý', '1995-2-20', 1),
-('Vladimír', 'Pokorný', '1984-4-18', 1),
-('Ondřej', 'Bohatý', '1973-5-14', 3),
-('Vítezslav', 'Churý', '1969-6-2', 7),
-('Pavel', 'Procházka', '1962-7-3', 8),
-('Matěj', 'Horák', '1974-9-10', 0),
-('Jana', 'Veselá', '1976-10-2', 1),
-('Miroslav', 'Kučera', '1948-11-3', 1),
-('František', 'Veselý', '1947-5-9', 1),
-('Michal', 'Krejčí', '1956-3-7', 0),
-('Lenka', 'Němcová', '1954-2-11', 5),
-('Věra', 'Marková', '1978-1-21', 3),
-('Eva', 'Kučerová', '1949-7-26', 12),
-('Lucie', 'Novotná', '1973-7-28', 4),
-('Jaroslav', 'Novotný', '1980-8-11', 8),
-('Petr', 'Dvořák', '1982-9-30', 18),
-('Jiří', 'Veselý', '1961-1-15', 2),
-('Martina', 'Krejčí', '1950-8-29', 4),
-('Marie', 'Černá', '1974-2-26', 5),
-('Věra', 'Svobodová', '1983-3-2', 2),
-('Pavel', 'Dušín', '1991-5-1', 9),
-('Otakar', 'Kovář', '1992-12-17', 9),
-('Kateřina', 'Koubová', '1956-11-15', 4),
-('Václav', 'Blažek', '1953-10-20', 6),
-('Jan', 'Spáčil', '1967-5-6', 3),
-('Zdeněk', 'Malačka', '1946-3-10', 6);
-
-DELETE FROM `uzivatele`;
-DELETE FROM SQLITE_SEQUENCE WHERE name = &quot;uzivatele&quot;;</sql><current_tab id="0"/></tab_sql></sqlb_project>
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/ladislav/Documents/GitHub/uzivatele.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="988"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,9:mainuzivatele"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="clanky" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="57"/><column index="2" value="51"/><column index="3" value="300"/><column index="4" value="196"/><column index="5" value="204"/><column index="6" value="82"/><column index="7" value="300"/><column index="8" value="72"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="meny" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="52"/><column index="2" value="124"/><column index="3" value="47"/><column index="4" value="87"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="sqlite_sequence" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="63"/><column index="2" value="49"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="uzivatele" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="108"/><column index="2" value="163"/><column index="3" value="141"/><column index="4" value="241"/><column index="5" value="363"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">SELECT &quot;titulek&quot;, &quot;prezdivka&quot;
+FROM &quot;clanky&quot;
+JOIN &quot;uzivatele&quot; ON &quot;autor_id&quot; = &quot;uzivatele_id&quot;
+ORDER BY &quot;prezdivka&quot;;
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
